@@ -1,26 +1,31 @@
 <?php
 
-namespace Luanrodrigues\Asaas;
+namespace Asaas;
 
 class Asaas
 {
-    public function conta()
+    public function subAccount($apiKey)
     {
-        return new Conta;
+        return new SubAccount($apiKey);
     }
 
-    public function cliente($apiKey)
+    public function customer($apiKey)
     {
-        return new Cliente($apiKey);
+        return new Customer($apiKey);
     }
 
-    public function cobranca($apiKey)
+    public function payment($apiKey)
     {
-        return new Cobranca($apiKey);
+        return new Payment($apiKey);
     }
 
-    public function cartao($apiKey)
+    public function creditCard($apiKey)
     {
-        return new Cartao($apiKey);
+        return new CreditCard($apiKey);
+    }
+
+    public function pix($apiKey)
+    {
+        return new Pix($apiKey);
     }
 }

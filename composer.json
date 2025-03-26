@@ -1,33 +1,36 @@
 {
-    "name": "beedelivery/laravel-asaas",
+    "name": "jorzelalves/laravel-asaas",
     "description": "Package for integration with Asaas.",
     "keywords": ["asaas", "laravel", "bank"],
     "type": "library",
     "require": {
-        "php": ">=8.0",
-        "ext-json": "*"
+        "php": ">=7.4",
+        "ext-json": "*",
+        "illuminate/support": "^11.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/console": "^11.0"
     },
     "license": "MIT",
     "prefer-stable": true,
     "authors": [
         {
-            "name": "Bee Delivery",
-            "email": "suporte@beedelivery.com.br"
+            "name": "Jorzel Alves",
+            "email": "jorzelalves@jorzelalves.com"
         }
     ],
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "BeeDelivery\\Asaas\\": "src/"
+            "Asaas\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "BeeDelivery\\Asaas\\AsaasServiceProvider"
+                "Asaas\\AsaasServiceProvider"
             ],
             "aliases": {
-                "Asaas": "BeeDelivery\\Asaas\\Facades\\Asaas"
+                "Asaas": "Asaas\\Facades\\Asaas"
             }
         }
     }

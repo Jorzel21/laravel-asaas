@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\Asaas;
+namespace Asaas;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -14,8 +14,14 @@ class AsaasServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/asaas.php' => config_path('asaas.php'),
-        ]);
+            __DIR__.'/../config/asaas.php' => \Illuminate\Support\Facades\App::configPath('asaas.php'),
+        ], 'config');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                Console\Commands\PublishAsaasCommand::class,
+            ]);
+        }
     }
 
     /**

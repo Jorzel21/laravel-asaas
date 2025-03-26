@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\Asaas;
+namespace Asaas;
 
 use GuzzleHttp\Client;
 
@@ -12,32 +12,22 @@ class Connection
 
     public $base_url;
 
-    public function __construct($apiKey, $apiVersion = 'v3')
+    public function __construct(string $apiKey)
     {
-        $this->api_key = $apiKey;
-
-        if ($apiVersion == 'v3') {
-            $this->base_url = config('asaas.base_url');
-        }
-
-        if ($apiVersion == 'v2') {
-            $this->base_url = config('asaas.base_url_v2');
-        }
-
         $this->http = new Client([
             'headers' => [
                 'Content-Type' => 'application/json',
-                'access_token' => $this->api_key,
+                'access_token' => $apiKey,
             ],
         ]);
 
         return $this->http;
     }
 
-    public function get($url)
+    public function get(string $url): array
     {
         try {
-            $response = $this->http->get($this->base_url.$url);
+            $response = $this->http->get($this->base_url . $url);
 
             return [
                 'code' => $response->getStatusCode(),
@@ -50,13 +40,13 @@ class Connection
             ];
         }
 
-        $response = $this->http->get($this->base_url.$url);
+        $response = $this->http->get($this->base_url . $url);
     }
 
-    public function post($url, $params)
+    public function post(string $url, array $params = []): array
     {
         try {
-            $response = $this->http->post($this->base_url.$url, $params);
+            $response = $this->http->post($this->base_url . $url, $params);
 
             return [
                 'code' => $response->getStatusCode(),
@@ -70,10 +60,37 @@ class Connection
         }
     }
 
-    public function delete($url)
+    public function put(string $url, array $params = []): array
     {
-        $response = $this->http->delete($this->base_url.$url);
+        try {
+            $response = $this->http->put($this->base_url . $url, $params);
 
-        return json_decode($response->getBody()->getContents(), true);
+            return [
+                'code' => $response->getStatusCode(),
+                'response' => json_decode($response->getBody()->getContents()),
+            ];
+        } catch (\Exception $e) {
+            return [
+                'code' => $e->getCode(),
+                'response' => $e,
+            ];
+        }
+    }
+
+    public function delete(string $url): array
+    {
+        try {
+            $response = $this->http->delete($this->base_url . $url);
+
+            return [
+                'code' => $response->getStatusCode(),
+                'response' => json_decode($response->getBody()->getContents()),
+            ];
+        } catch (\Exception $e) {
+            return [
+                'code' => $e->getCode(),
+                'response' => $e,
+            ];
+        }
     }
 }
