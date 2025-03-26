@@ -8,6 +8,6 @@ class AccessTokenException extends Exception
 {
     public static function invalidToken()
     {
-        return new static('O Token fornecido não é válido.');
+        return new static('The token provided is invalid.');
     }
 }
