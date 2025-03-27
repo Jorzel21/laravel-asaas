@@ -14,7 +14,7 @@ class SubAccountValidator
             'loginEmail' => 'nullable|email',
             'cpfCnpj' => 'required|string',
             'birthDate' => 'nullable|date_format:Y-m-d',
-            'companyType' => 'required|string|in:MEI,LIMITED,INDIVIDUAL,ASSOCIATION',
+            'companyType' => 'nullable|string|in:MEI,LIMITED,INDIVIDUAL,ASSOCIATION',
             'phone' => 'nullable|string',
             'mobilePhone' => 'required|string',
             'site' => 'nullable|url',

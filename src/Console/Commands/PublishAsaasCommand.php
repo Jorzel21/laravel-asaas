@@ -29,8 +29,7 @@ class PublishAsaasCommand extends Command
         
         $this->call('vendor:publish', [
             '--provider' => 'Asaas\\AsaasServiceProvider',
-            '--tag' => 'config',
-            '--force' => $this->option('force'),
+            '--tag' => 'config'
         ]);
 
         $this->info('Asaas configuration published successfully!');
