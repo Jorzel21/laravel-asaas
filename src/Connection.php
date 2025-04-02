@@ -14,6 +14,7 @@ class Connection
 
     public function __construct(string $apiKey)
     {
+        $this->base_url = config('asaas.base_url');
         $this->http = new Client([
             'headers' => [
                 'Content-Type' => 'application/json',
@@ -36,7 +37,7 @@ class Connection
         } catch (\Exception $e) {
             return [
                 'code' => $e->getCode(),
-                'response' => $e,
+                'response' => $e->getMessage(),
             ];
         }
 
@@ -46,16 +47,16 @@ class Connection
     public function post(string $url, array $params = []): array
     {
         try {
-            $response = $this->http->post($this->base_url . $url, $params);
+            $response = $this->http->post($this->base_url . $url,  ['json' => $params]);
 
             return [
                 'code' => $response->getStatusCode(),
-                'response' => json_decode($response->getBody()->getContents()),
+                'response' => json_decode($response->getBody()->getContents(), true),
             ];
         } catch (\Exception $e) {
             return [
                 'code' => $e->getCode(),
-                'response' => $e,
+                'response' => $e->getMessage(),
             ];
         }
     }
@@ -63,7 +64,7 @@ class Connection
     public function put(string $url, array $params = []): array
     {
         try {
-            $response = $this->http->put($this->base_url . $url, $params);
+            $response = $this->http->put($this->base_url . $url, ['json' => $params]);
 
             return [
                 'code' => $response->getStatusCode(),
@@ -72,7 +73,7 @@ class Connection
         } catch (\Exception $e) {
             return [
                 'code' => $e->getCode(),
-                'response' => $e,
+                'response' => $e->getMessage(),
             ];
         }
     }
@@ -89,7 +90,7 @@ class Connection
         } catch (\Exception $e) {
             return [
                 'code' => $e->getCode(),
-                'response' => $e,
+                'response' => $e->getMessage(),
             ];
         }
     }
