@@ -19,27 +19,40 @@ class PaymentValidator
             'installmentCount' => 'nullable|integer',
             'totalValue' => 'nullable|numeric',
             'installmentValue' => 'nullable|numeric',
+        
+            // Discount
             'discount' => 'nullable|array',
             'discount.value' => 'nullable|numeric',
             'discount.dueDateLimitDays' => 'nullable|integer',
             'discount.type' => 'nullable|string|in:PERCENTAGE,FIXED',
+        
+            // Interest
             'interest' => 'nullable|array',
             'interest.value' => 'nullable|numeric',
+        
+            // Fine
             'fine' => 'nullable|array',
             'fine.value' => 'nullable|numeric',
             'fine.type' => 'nullable|string|in:PERCENTAGE,FIXED',
+        
+            // Postal Service
             'postalService' => 'nullable|boolean',
+        
+            // Split
             'split' => 'nullable|array',
-            'split.walletId' => 'required|string',
+            'split.walletId' => 'required_with:split|string',
             'split.fixedValue' => 'nullable|numeric',
             'split.percentualValue' => 'nullable|numeric',
             'split.totalFixedValue' => 'nullable|numeric',
             'split.externalReference' => 'nullable|string',
             'split.description' => 'nullable|string',
+        
+            // Callback
             'callback' => 'nullable|array',
-            'callback.successUrl' => 'required|url',
+            'callback.successUrl' => 'required_with:callback|url',
             'callback.autoRedirect' => 'nullable|boolean',
         ];
+        
 
         if ($payment['billingType'] === 'CREDIT_CARD') {
             if (empty($payment['creditCardToken'])) {
