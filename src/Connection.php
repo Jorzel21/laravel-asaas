@@ -32,7 +32,7 @@ class Connection
 
             return [
                 'code' => $response->getStatusCode(),
-                'response' => json_decode($response->getBody()->getContents()),
+                'response' => json_decode($response->getBody()->getContents(), true),
             ];
         } catch (\Exception $e) {
             return [
@@ -68,7 +68,7 @@ class Connection
 
             return [
                 'code' => $response->getStatusCode(),
-                'response' => json_decode($response->getBody()->getContents()),
+                'response' => json_decode($response->getBody()->getContents(), true),
             ];
         } catch (\Exception $e) {
             return [
@@ -85,7 +85,7 @@ class Connection
 
             return [
                 'code' => $response->getStatusCode(),
-                'response' => json_decode($response->getBody()->getContents()),
+                'response' => json_decode($response->getBody()->getContents(), true),
             ];
         } catch (\Exception $e) {
             return [
