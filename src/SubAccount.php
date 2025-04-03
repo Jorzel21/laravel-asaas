@@ -24,7 +24,7 @@ class SubAccount
     public function create(array $subAccount): array
     {
         SubAccountValidator::validateCreateSubAccount($subAccount);
-        return $this->http->post('/v3/accounts', $subAccount);
+        return $this->http->post('v3/accounts', $subAccount);
     }
 
     /**
@@ -53,6 +53,6 @@ class SubAccount
      */
     public function get(string $id): array
     {
-        return $this->http->get("/v3/accounts/{$id}");
+        return $this->http->get("v3/accounts/{$id}");
     }
 }

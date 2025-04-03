@@ -25,7 +25,7 @@ class Customer
     public function create(array $customer): array
     {
         CustomerValidator::validateCreateCustomer($customer);
-        return $this->http->post('/v3/customers', $customer);
+        return $this->http->post('v3/customers', $customer);
     }
 
     /**
@@ -53,7 +53,7 @@ class Customer
      */
     public function get(string $id): array
     {
-        return $this->http->get("/v3/customers/{$id}");
+        return $this->http->get("v3/customers/{$id}");
     }
 
     /**
@@ -68,7 +68,7 @@ class Customer
     public function update(string $id, array $customer): array
     {
         CustomerValidator::validateUpdateCustomer($customer);
-        return $this->http->put("/v3/customers/{$id}", $customer);
+        return $this->http->put("v3/customers/{$id}", $customer);
     }
 
     /**
@@ -81,7 +81,7 @@ class Customer
      */
     public function delete(string $id): array
     {
-        return $this->http->delete("/v3/customers/{$id}");
+        return $this->http->delete("v3/customers/{$id}");
     }
 
     /**
@@ -94,7 +94,7 @@ class Customer
      */
     public function restoreRemovedCustomer(string $id): array
     {
-        return $this->http->post("/v3/customers/{$id}/restore");
+        return $this->http->post("v3/customers/{$id}/restore");
     }
 
     /**

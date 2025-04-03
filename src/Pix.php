@@ -22,7 +22,7 @@ class Pix
      */
     public function createPixKey(): array
     {
-        return $this->http->post('/v3/pix/addressKeys', ['type' => 'EVP']);
+        return $this->http->post('v3/pix/addressKeys', ['type' => 'EVP']);
     }
 
     /**
@@ -34,7 +34,7 @@ class Pix
      */
     public function listPixKeys(): array
     {
-        return $this->http->get('/v3/pix/addressKeys');
+        return $this->http->get('v3/pix/addressKeys');
     }
 
     /**
@@ -46,7 +46,7 @@ class Pix
      */
     public function getPixKey(string $id): array
     {
-        return $this->http->get("/v3/pix/addressKeys/{$id}");
+        return $this->http->get("v3/pix/addressKeys/{$id}");
     }
 
     /**
@@ -58,7 +58,7 @@ class Pix
      */
     public function deletePixKey(string $id): array
     {
-        return $this->http->delete("/v3/pix/addressKeys/{$id}");
+        return $this->http->delete("v3/pix/addressKeys/{$id}");
     }
 
     /**
@@ -71,7 +71,7 @@ class Pix
     public function createStaticQrCode(array $data): array
     {
         PixValidator::validateCreateStaticQrCode($data);
-        return $this->http->post("/v3/pix/qrCodes/static", $data);
+        return $this->http->post("v3/pix/qrCodes/static", $data);
     }
 
     /**
@@ -83,6 +83,6 @@ class Pix
      */
     public function deleteStaticQrCode(string $id): array
     {
-        return $this->http->delete("/v3/pix/qrCodes/static/{$id}");
+        return $this->http->delete("v3/pix/qrCodes/static/{$id}");
     }
 }

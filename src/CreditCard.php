@@ -16,6 +16,6 @@ class CreditCard
     public function tokenize(array $creditCard)
     {
         CreditCardValidator::tokenize($creditCard);
-        $this->http->post('/v3/creditCard/tokenizeCreditCard', $creditCard);
+        $this->http->post('v3/creditCard/tokenizeCreditCard', $creditCard);
     }
 }
