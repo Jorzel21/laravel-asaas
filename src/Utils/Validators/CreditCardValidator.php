@@ -17,7 +17,7 @@ class CreditCardValidator
             'creditCard.number' => 'required|string',
             'creditCard.expiryMonth' => 'required|string:2',
             'creditCard.expiryYear' => 'required|string:4',
-            'creditCard.cvv' => 'required|string',
+            'creditCard.ccv' => 'required|string',
             // Holder Information
             'creditCardHolderInfo' => 'required|array',
             'creditCardHolderInfo.name' => 'required|string',
