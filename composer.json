@@ -30,7 +30,7 @@
                 "Asaas\\AsaasServiceProvider"
             ],
             "aliases": {
-                "Asaas": "Asaas\\Facades\\Asaas"
+                "Asaas": "Asaas\\Facades"
             }
         }
     }

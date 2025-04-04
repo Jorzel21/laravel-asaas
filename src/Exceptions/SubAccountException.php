@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\Asaas\Exceptions;
+namespace Asaas\Exceptions;
 
 use Exception;
 

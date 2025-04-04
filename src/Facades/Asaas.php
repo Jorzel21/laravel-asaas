@@ -1,6 +1,6 @@
 <?php
 
-namespace Luanrodrigues\Asaas\Facades;
+namespace Asaas\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
