@@ -1,0 +1,15 @@
+<?php
+
+namespace Asaas\Utils\Enums;
+
+class InvoicesWebhookEvents
+{
+    public const INVOICE_CREATED = 'INVOICE_CREATED';
+    public const INVOICE_UPDATED = 'INVOICE_UPDATED';
+    public const INVOICE_SYNCHRONIZED = 'INVOICE_SYNCHRONIZED';
+    public const INVOICE_AUTHORIZED = 'INVOICE_AUTHORIZED';
+    public const INVOICE_PROCESSING_CANCELLATION = 'INVOICE_PROCESSING_CANCELLATION';
+    public const INVOICE_CANCELED = 'INVOICE_CANCELED';
+    public const INVOICE_CANCELLATION_DENIED = 'INVOICE_CANCELLATION_DENIED';
+    public const INVOICE_ERROR = 'INVOICE_ERROR';
+}
