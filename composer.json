@@ -4,11 +4,11 @@
     "keywords": ["asaas", "laravel", "bank"],
     "type": "library",
     "require": {
-        "php": ">=7.4",
+        "php": "^8.0",
         "ext-json": "*",
-        "illuminate/support": "^11.0",
+        "illuminate/support": "^11.0|^12.0",
         "guzzlehttp/guzzle": "^7.0",
-        "illuminate/console": "^11.0"
+        "illuminate/console": "^11.0|^12.0"
     },
     "license": "MIT",
     "prefer-stable": true,
